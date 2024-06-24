@@ -1,13 +1,19 @@
+from xml.etree.ElementInclude import include
 import numpy as np
 import numpy.typing as npt  # numpy typing method
 import pandas as pd
 import matplotlib.pyplot as plt
 from matplotlib.axes import Axes
 import seaborn as sns
-from typing import Any
+from typing import Any, Union
 
 
-def gender_boxplot_graph(df: pd.DataFrame, gender: str = "male", **kwargs: Any):
+def gender_boxplot_graph(
+    df: pd.DataFrame,
+    gender: str = "male",
+    title: Union[str, None] = None,
+    **kwargs: Any,
+):
     """This function geranate a boxplot base on the geder passed, it defaults to male.
 
     Args:
@@ -18,18 +24,19 @@ def gender_boxplot_graph(df: pd.DataFrame, gender: str = "male", **kwargs: Any):
     ax: Axes
 
     fig, ax = plt.subplots(figsize=(12, 20))
-    print(kwargs)
-    if gender == "male":
+    if "male" in gender.lower():
         sns.boxplot(
             data=df[df["Gender"] == 1].drop("Gender", axis=1),
             **kwargs,
         )
     else:
         sns.boxplot(
-            data=df[df["Gender"] == 0].drop("Gender", axis=1), legend=True, **kwargs
+            data=df[df["Gender"] == 0].drop("Gender", axis=1),
+            legend=True,
+            **kwargs,
         )
 
-    ax.set_title(f"{gender.capitalize()} Graph")
+    ax.set_title(title if title else f"{gender.capitalize()} Graph")
 
     plt.show()
 

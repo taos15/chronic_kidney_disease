@@ -30,7 +30,8 @@ def filtered_df(
 
     if rm_columns:
         for col_to_remove in rm_columns:
-            df_columns.remove(col_to_remove)
+            if col_to_remove in df_columns:
+                df_columns.remove(col_to_remove)
 
         # return df[df_columns]
 
