@@ -1,10 +1,12 @@
 # Chronic Kidney Disease
 
+[dataset-sourse](https://www.kaggle.com/datasets/rabieelkharoua/chronic-kidney-disease-dataset-analysis)
+
 ## introduction
 
 This project look to explorer the possible cause of chronic kidney disease (CKS). The project analyzed the data from over 1500 patients that were diagnosed with CKS. The dataset includes information in different ares like demographic, lifestyle, medical history, medication, clinical measurements, symptoms, and health behaviors.
 
-## Data Alnalysis
+## Data Analysis
 
 ### Data Exploration
 
